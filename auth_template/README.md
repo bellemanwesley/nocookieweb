@@ -1,2 +1,2 @@
-# security
-Security projects primarily to complement my blog posts.
+# Authentication Template
+This project is a Django template for cookie-free session integrity.
