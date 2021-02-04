@@ -1,2 +1,24 @@
 # Authentication Template
-This project is a Django template for cookie-free session integrity.
+This project builds 
+
+## Install django-auth
+#### First clone the repository:
+git clone https://github.com/bellemanwesley/security.git
+
+#### Move into the django_auth directory
+cd security/auth_template
+
+#### Run the shell script
+sh install.sh
+
+#### Test the install
+django-auth -t
+
+## Create a new django project
+django-auth --create [projectname]
+
+## Update an existing project
+django-auth --update [/absolute/project/directory]
+
+# Limitations
+Right now this project only supports new projects or updates to projects that were created with this tool. The tool does not retrofit old projects that were not created with this tool.
