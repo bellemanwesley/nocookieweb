@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<!-- bootstrap links -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+<link rel="icon" href="https://www.pinclipart.com/picdir/big/1-13391_the-history-of-my-globe-with-flags-icon.png">
+<body style="background-color: #F4D03F;">
+<title> Vitamova </title>
+
+<div class="jumbotron jumbotron-fluid bg-primary">
+  <div class="container">
+    <h1 class="display-4">Vitamova</h1>
+  </div>
+</div>
+
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <form action="/login/" method="POST" id="login_form">
+            {% csrf_token %}
+            <input type="text" id="login_token" name="login_token" value="{{randomvalue}}" hidden>
+            <div class="form-group">
+                <label for="InputEmail">Email address</label>
+                <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp" name="email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+                <label for="InputPassword">Password</label>
+                <input type="password" class="form-control" id="InputPassword" name="password">
+            </div>
+            <div class="form-group form-check">
+                <input type="checkbox" class="form-check-input" id="Check" name="persist">
+                <label class="form-check-label" for="Check">Stay logged in</label>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+    </div>
+    <div class="col"></div>
+</div>
+
+<script>
+    var token = document.getElementById("login_token");
+    var login_email = document.getElementById("InputEmail");
+    var form = document.getElementById("login_form");
+    var check = document.getElementById("Check");
+    form.addEventListener("input", function () {
+        window.localStorage.setItem("login_email",login_email.value);
+        if(check.checked==true) {
+            window.localStorage.setItem("login_token",token.value);
+        } else {
+            window.localStorage.removeItem("login_token")
+            window.sessionStorage.setItem("login_token",token.value)
+        }
+    });
+</script>
+  
+  </body>
+</html>
+

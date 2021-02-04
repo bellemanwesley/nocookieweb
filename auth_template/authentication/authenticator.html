@@ -1,0 +1,22 @@
+<html>
+    <body>
+        <form method="POST" action="{{url}}" id="auth_form" hidden>
+            {% csrf_token %}
+            <input type="text" id="email" name="email">
+            <input type="text" id="login_token" name="login_token">
+        </form>
+        <script>
+            var email = document.getElementById("email");
+            var login_token = document.getElementById("login_token");
+            var stored_token = window.localStorage.getItem("login_token");
+            if (stored_token==null) {
+                stored_token = window.sessionStorage.getItem("login_token");
+            }
+            var stored_email = window.localStorage.getItem("login_email");
+            email.value = stored_email;
+            console.log(stored_email);
+            login_token.value = stored_token;
+            document.getElementById("auth_form").submit();
+        </script>
+    </body>
+</html>
