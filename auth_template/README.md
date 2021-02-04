@@ -28,7 +28,7 @@ django-auth --create [projectname]
 ```
 
 ## Update an existing project
-```
+```sh
 django-auth --update [/absolute/project/directory]
 ```
 
