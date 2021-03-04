@@ -1,4 +1,4 @@
-# Authentication Template
+# Cookie Free Websites
 This project builds django projects with pre-installed authentication tools. This project is a go-to starting point for your website that requires user authentication.
 
 ## Install django-auth
